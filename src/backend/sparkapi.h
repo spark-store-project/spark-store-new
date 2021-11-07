@@ -12,6 +12,7 @@ class SparkAPI : public QObject
     Q_OBJECT
 public:
     void getSearchList(QString keyword,int page);
+    void get(QUrl url);
     void getAppList(QString type);
     explicit SparkAPI(QObject *parent = nullptr);
 signals:

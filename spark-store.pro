@@ -1,10 +1,10 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-06-30T12:53:03
+# Project created by QtCreator 2021-10-29T16:58:36
 #
 #-------------------------------------------------
 
-QT       += core gui network concurrent webenginewidgets
+QT       += core gui network concurrent
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 

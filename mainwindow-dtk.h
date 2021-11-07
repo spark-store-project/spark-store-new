@@ -7,6 +7,7 @@
 #include <QGraphicsDropShadowEffect>
 #include <DGuiApplicationHelper>
 #include <QPushButton>
+#include <QDir>
 DWIDGET_USE_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -21,6 +22,7 @@ public:
     ~MainWindow();
 private slots:
 private:
+    void initConfig();
     void initPage(int now);
     void updateUi(int now);
     DSearchEdit *searchEdit=new DSearchEdit;

@@ -4,19 +4,23 @@ SparkAPI::SparkAPI(QObject *parent) : QObject(parent)
 {
 
 }
-void getAppList(QString type)
+void SparkAPI::get(QUrl url)
 {
     QNetworkRequest request;
     HttpRequest *httprequest=new HttpRequest;
-    request.setUrl(QUrl("https://json.jerrywang.top/store/"+type+"/applist.json"));
+    request.setUrl(url);
     connect(httprequest,&HttpRequest::finished,[=](QString data){
         QByteArray arr = data.toUtf8();
             //解析Json
             QJsonParseError error;
             QJsonDocument doc = QJsonDocument::fromJson(arr,&error);
             QJsonObject obj = doc.object();
-            emit finished(obj.value("data").toObject().value("list").toArray());
+            emit finished(obj.toArray());
             httprequest->deleteLater();
     });
     httprequest->getRequest(request);
+}
+void SparkAPI::getAppList(QString type)
+{
+    get(QUrl("https://json.jerrywang.top/store/"+type+"/applist.json"));
 }

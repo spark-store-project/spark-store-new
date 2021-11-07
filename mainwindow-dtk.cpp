@@ -35,13 +35,14 @@ MainWindow::MainWindow(QWidget *parent) :
     });
 
 
-        //初始化标题栏控件
+    //初始化标题栏控件
     ui->titlebar->setIcon(QIcon::fromTheme(":/icon/logo.png"));
     QWidget *w_titlebar = new QWidget(this);
     QHBoxLayout *ly_titlebar = new QHBoxLayout(this);
     w_titlebar->setLayout(ly_titlebar);
     QLabel *title=new QLabel(this);
     title->setText(tr("Spark Store"));
+    searchEdit->setPlaceholderText(tr("Search or enter spk://"));
     ly_titlebar->addWidget(title);
     ly_titlebar->addSpacing(10);
     ly_titlebar->addStretch();
@@ -60,7 +61,24 @@ MainWindow::MainWindow(QWidget *parent) :
         i++;
     }
 
+    // 搜索事件
+    connect(searchEdit, &DSearchEdit::returnPressed, this, [=]()
+    {
+        QString searchtext = searchEdit->text();
+        if(!searchtext.isEmpty())
+        {
+            qDebug() << searchEdit->text();
+            ui->searchpage->searchApp(searchtext);
+        }
+        this->setFocus();
+    });
 
+}
+void MainWindow::initConfig()
+{
+    // 新建临时文件夹
+    QDir dir("/tmp");
+    dir.mkdir("spark-store");
 }
 
 void MainWindow::initPage(int now)

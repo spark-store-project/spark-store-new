@@ -67,8 +67,14 @@ MainWindow::MainWindow(QWidget *parent) :
         QString searchtext = searchEdit->text();
         if(!searchtext.isEmpty())
         {
-            qDebug() << searchEdit->text();
-            ui->searchpage->searchApp(searchtext);
+            if(text.left(6) == "spk://")
+            {
+                openUrl(searchtext);
+                searchEdit->clearEdit();
+            }else{
+                ui->searchpage->searchApp(searchtext);
+                searchEdit->clearEdit();
+            }
         }
         this->setFocus();
     });

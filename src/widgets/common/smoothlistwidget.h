@@ -9,8 +9,6 @@ class SmoothListWidget: public QListWidget
 {
     Q_OBJECT
 public:
-    void clearItem();
-    void addItem(QString name,QString author,QUrl icons,QUrl spk,QString more);
     explicit SmoothListWidget(QWidget *parent = nullptr);
     SmoothScrollBar* vScrollBar=new SmoothScrollBar(); //纵向滚动条
 private:

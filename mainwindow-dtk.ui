@@ -277,7 +277,7 @@
            <number>0</number>
           </property>
           <item row="0" column="0">
-           <widget class="RecommendPage" name="recommendpage" native="true"/>
+           <widget class="HomePage" name="homepage" native="true"/>
           </item>
          </layout>
         </widget>
@@ -296,7 +296,7 @@
            <number>0</number>
           </property>
           <item>
-           <widget class="PopularPage" name="popularpage" native="true"/>
+           <widget class="ClassifyPage" name="classifypage" native="true"/>
           </item>
          </layout>
         </widget>
@@ -315,7 +315,7 @@
            <number>0</number>
           </property>
           <item>
-           <widget class="SearchPage" name="searchpage" native="true"/>
+           <widget class="AppListPage" name="applistpage" native="true"/>
           </item>
          </layout>
         </widget>
@@ -335,21 +335,21 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>RecommendPage</class>
+   <class>HomePage</class>
    <extends>QWidget</extends>
-   <header>src/pages/recommendpage.h</header>
+   <header>src/pages/homepage.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>PopularPage</class>
+   <class>ClassifyPage</class>
    <extends>QWidget</extends>
-   <header>src/pages/popularpage.h</header>
+   <header>src/pages/classifypage.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>SearchPage</class>
+   <class>AppListPage</class>
    <extends>QWidget</extends>
-   <header>src/pages/searchpage.h</header>
+   <header>src/pages/applistpage.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -80,7 +80,15 @@ void MainWindow::initConfig()
     QDir dir("/tmp");
     dir.mkdir("spark-store");
 }
-
+void MainWindow::openUrl(QUrl url)
+{
+    if(url.toString().left(6) == "spk://")
+    {
+        ui->appintopage->openUrl(url);
+    }else{
+        QDesktopServices::openUrl(url);
+    }
+}
 void MainWindow::initPage(int now)
 {
     switch (now) {

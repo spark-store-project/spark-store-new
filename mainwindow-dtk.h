@@ -8,6 +8,7 @@
 #include <DGuiApplicationHelper>
 #include <QPushButton>
 #include <QDir>
+#include <QDesktopServices>
 DWIDGET_USE_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -18,6 +19,7 @@ class MainWindow : public DMainWindow
     Q_OBJECT
 
 public:
+    void openUrl(QUrl);
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 private slots:

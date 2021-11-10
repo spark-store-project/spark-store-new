@@ -28,3 +28,7 @@ void SparkAPI::getSearchList(QString keyword)
 {
     get(QUrl("https://search.deepinos.org.cn/appinfo/search?"+keyword));
 }
+void SparkAPI::getAppInfo(QUrl spk)
+{
+    get(QUrl("https://json.jerrywang.top/store"+spk.path() + "/app.json"));
+}

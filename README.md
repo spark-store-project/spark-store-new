@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://gitee.com/Limexb/spark-store-new/raw/master/assets/icon/logo.svg"/>
+<img src="https://gitee.com/Limexb/spark-store-new/raw/master/assets/icon/logo.svg" height=200 width=200/>
 </p>
 
 <div align="center">

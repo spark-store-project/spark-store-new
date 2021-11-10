@@ -26,7 +26,7 @@ void SparkAPI::getAppList(QString type)
 }
 void SparkAPI::getSearchList(QString keyword)
 {
-    get(QUrl("https://search.deepinos.org.cn/appinfo/search?"+keyword));
+    get(QUrl("https://search.deepinos.org.cn/appinfo/search?keyword="+keyword));
 }
 void SparkAPI::getAppInfo(QUrl spk)
 {

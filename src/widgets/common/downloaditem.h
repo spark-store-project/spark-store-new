@@ -7,7 +7,10 @@
 #include <QAction>
 #include <QUrl>
 #include <DDialog>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
 #include "src/backend/sparkapi.h"
+#include "src/backend/downloadworker.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -49,6 +52,11 @@ public:
 
 private:
     Ui::DownloadItem *ui;
+    long download_size = 0;
+    long size1 = 0;
+    long size2 = 0;
+    QTimer *download_speed;
+    DownloadController *downloadController;
     QUrl spk;
     QMenu *menu_install;
     QAction *action_dpkg;
@@ -57,12 +65,15 @@ private:
 
     DDialog *output_w;
     QTextBrowser *textbrowser;
-
+private slots:
+    void httpFinished();
+    void updateDataReadProgress(qint64,qint64);
 private slots:
     void on_pushButton_install_clicked();
     void on_pushButton_2_clicked();
     void on_pushButton_3_clicked();
-
+signals:
+    void finished();
 };
 
 #endif // DOWNLOADITEM_H

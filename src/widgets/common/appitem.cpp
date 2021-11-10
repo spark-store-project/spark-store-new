@@ -40,22 +40,7 @@ void AppItem::setPic(QNetworkReply *reply)
     pixmap.loadFromData(jpegData);
     pixmap.scaled(100, 70, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
 
-    // 画成圆形图片
-    int width = ui->pic->width();
-    int height = ui->pic->height();
-    QSize size(width, height);
-    QBitmap mask(size);
-    QPainter painter(&mask);
-    painter.setRenderHint(QPainter::Antialiasing);
-    painter.setRenderHint(QPainter::SmoothPixmapTransform);
-    painter.fillRect(0, 0, size.width(), size.height(), Qt::white);
-    painter.setBrush(QColor(0, 0, 0));
-    painter.drawRoundedRect(0, 0, size.width(), size.height(), 14, 14);//修改这个值，可以改弧度，和直径相等就是圆形
-    QPixmap image = pixmap.scaled(size);
-    image.setMask(mask);
-
-
-    ui->pic->setPixmap(image);
+    ui->pic->setPixmap(pixmap);
     ui->pic->setScaledContents(true);
 }
 void AppItem::setMore(QString more)

@@ -97,23 +97,18 @@ void MainWindow::openUrl(QUrl url)
 }
 void MainWindow::initPage(int now)
 {
-    switch (now) {
-        case 1:
-               if(ui->popularpage->first==true)
-               {
-                   ui->popularpage->updateUI();
-               }
-               break;
-    }
+
 }
 
 //刷新界面
 void MainWindow::updateUi(int now)
 {
-    if(now<2)
+    if(now>1)
     {
         initPage(now);
         ui->stackedWidget->setCurrentIndex(now);
+    }else{
+        ui->stackedWidget->setCurrentIndex(now)
     }
 }
 MainWindow::~MainWindow()

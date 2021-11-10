@@ -24,3 +24,7 @@ void SparkAPI::getAppList(QString type)
 {
     get(QUrl("https://json.jerrywang.top/store/"+type+"/applist.json"));
 }
+void SparkAPI::getSearchList(QString keyword)
+{
+    get(QUrl("https://search.deepinos.org.cn/appinfo/search?"+keyword));
+}

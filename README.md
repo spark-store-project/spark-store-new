@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://gitee.com/Limexb/bili.-qt/raw/main/assets/icon/logo.png"/>
+<img src="https://gitee.com/Limexb/spark-store-new/raw/master/assets/icon/logo.svg"/>
 </p>
 
 <div align="center">

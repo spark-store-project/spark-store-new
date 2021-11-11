@@ -11,6 +11,7 @@ class SparkAPI : public QObject
 {
     Q_OBJECT
 public:
+    static QString getServerUrl();
     void getSearchList(QString keyword);
     void get(QUrl url);
     void getAppList(QString type);

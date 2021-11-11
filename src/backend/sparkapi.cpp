@@ -22,7 +22,7 @@ void SparkAPI::get(QUrl url)
 }
 void SparkAPI::getAppList(QString type)
 {
-    get(QUrl("https://json.jerrywang.top/store/"+type+"/applist.json"));
+    get(QUrl(getServerUrl()+"store/"+type+"/applist.json"));
 }
 void SparkAPI::getSearchList(QString keyword)
 {
@@ -30,5 +30,9 @@ void SparkAPI::getSearchList(QString keyword)
 }
 void SparkAPI::getAppInfo(QUrl spk)
 {
-    get(QUrl("https://json.jerrywang.top/store"+spk.path() + "/app.json"));
+    get(QUrl(getServerUrl()+"store"+spk.path() + "/app.json"));
+}
+QString SparkAPI::getServerUrl()
+{
+    return "https://d.store.deepinos.org.cn/";
 }

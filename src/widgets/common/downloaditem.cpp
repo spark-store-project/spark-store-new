@@ -209,73 +209,48 @@ void DownloadItem::install(int t)
     }
 
 }
-void DownloadItem::setSpk(QUrl spk)
+void DownloadItem::setUrl(QString url)
 {
-    DownloadItem::spk=spk;
+    DownloadItem::url=url;
 }
 void DownloadItem::start()
 {
-    SparkAPI *api=new SparkAPI(this);
-    connect(api,&SparkAPI::finished,[=](QJsonArray appinfo){
-        QJsonObject info = appinfo.at(0).toObject();
-        setName(info["Name"].toString());
-        setFileName(info["Filename"].toString());
-        DownloadItem::pkgName=info["Pkgname"].toString();
-        download_speed=new QTimer(this);
-        //获取图标
-        QNetworkRequest request;
-        naManager=new QNetworkAccessManager(this);
-        request.setUrl(QUrl("https://img.jerrywang.top/store"+DownloadItem::spk.path() + "/icon.png"));
-        request.setRawHeader("User-Agent", "Mozilla/5.0");
-        request.setRawHeader("Content-Type", "charset='utf-8'");
-        naManager->get(request);
-        QObject::connect(naManager,&QNetworkAccessManager,[=](QNetworkReply *reply){
-                QByteArray jpegData = reply->readAll();
-                QPixmap pixmap;
-                pixmap.loadFromData(jpegData);
-                pixmap.scaled(100, 70, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-                seticon(pixmap);
-            });
-        // 计算显示下载速度
-        download_speed->setInterval(1000);
-        download_speed->start();
-        connect(download_speed,&QTimer::timeout,[=]()
-        {
-                size1 = download_size;
-                QString theSpeed;
-                double bspeed;
-                bspeed = size1 - size2;
-                if(bspeed < 1024)
-                {
-                    theSpeed = QString::number(bspeed) + "B/s";
-                }
-                else if(bspeed < 1024 * 1024)
-                {
-                    theSpeed = QString::number(0.01 * int(100 * (bspeed / 1024))) + "KB/s";
-                }
-                else if(bspeed < 1024 * 1024 * 1024)
-                {
-                    theSpeed = QString::number(0.01 * int(100 * (bspeed / (1024 * 1024)))) + "MB/s";
-                }
-                else
-                {
-                    theSpeed = QString::number(0.01 * int(100 * (bspeed / (1024 * 1024 * 1024)))) + "GB/s";
-                }
-                setSpeed(theSpeed);
-                size2 = download_size;
-        });
-
-        downloadController=new DownloadController(this);
-        connect(downloadController, &DownloadController::downloadProcess, this, &Widget::updateDataReadProgress);
-        connect(downloadController, &DownloadController::downloadFinished, this, &Widget::httpFinished);
-        connect(downloadController, &DownloadController::errorOccur, this, [=](QString msg){this->sendNotification(msg);});
-        downloadController->setFilename(info["Filename"].toString());
-        downloadController->startDownload("https://d.store.deepinos.org.cn/store"+spk.path()+"/"+info["Filename"].toString());
-
-        disconnect(api,&SparkAPI::finished,nullptr,nullptr);
-        api->deleteLater();
+    download_speed=new QTimer(this);
+    // 计算显示下载速度
+    download_speed->setInterval(1000);
+    download_speed->start();
+    connect(download_speed,&QTimer::timeout,[=]()
+    {
+            size1 = download_size;
+            QString theSpeed;
+            double bspeed;
+            bspeed = size1 - size2;
+            if(bspeed < 1024)
+            {
+                theSpeed = QString::number(bspeed) + "B/s";
+            }
+            else if(bspeed < 1024 * 1024)
+            {
+                theSpeed = QString::number(0.01 * int(100 * (bspeed / 1024))) + "KB/s";
+            }
+            else if(bspeed < 1024 * 1024 * 1024)
+            {
+                theSpeed = QString::number(0.01 * int(100 * (bspeed / (1024 * 1024)))) + "MB/s";
+            }
+            else
+            {
+                theSpeed = QString::number(0.01 * int(100 * (bspeed / (1024 * 1024 * 1024)))) + "GB/s";
+            }
+            setSpeed(theSpeed);
+            size2 = download_size;
     });
-    api->getAppInfo(spk);
+
+    downloadController=new DownloadController(this);
+    connect(downloadController, &DownloadController::downloadProcess, this, &Widget::updateDataReadProgress);
+    connect(downloadController, &DownloadController::downloadFinished, this, &Widget::httpFinished);
+    connect(downloadController, &DownloadController::errorOccur, this, [=](QString msg){this->sendNotification(msg);});
+    downloadController->setFilename(ui->label_filename->text());
+    downloadController->startDownload(DownloadItem::url);
 }
 void DownloadItem::updateDataReadProgress(qint64 bytesRead, qint64 totalBytes)
 {

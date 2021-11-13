@@ -14,6 +14,7 @@ class AppListPage : public QWidget
     Q_OBJECT
 
 public:
+    void getSearchList(QString keyword);
     void getAppList(QString type);
     explicit AppListPage(QWidget *parent = nullptr);
     ~AppListPage();

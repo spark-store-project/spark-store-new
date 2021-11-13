@@ -36,7 +36,7 @@ public:
     bool close;
 
     void start();
-    void setSpk(QUrl spk);
+    void setUrl(QString url);
     void setValue(qint64);
     void setMax(qint64);
     void setName(QString);
@@ -57,7 +57,7 @@ private:
     long size2 = 0;
     QTimer *download_speed;
     DownloadController *downloadController;
-    QUrl spk;
+    QString url;
     QMenu *menu_install;
     QAction *action_dpkg;
     QAction *action_deepin;

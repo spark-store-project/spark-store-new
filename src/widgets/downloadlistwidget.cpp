@@ -17,6 +17,21 @@ DownloadListWidget::~DownloadListWidget()
 {
     delete ui;
 }
+void DownloadListWidget::clearItem()
+{
+    ui->listWidget->vScrollBar->scrollTop();
+    int n=ui->listWidget->count();
+    for(int i=0;i<n;i++)
+    {
+        QListWidgetItem *item = ui->listWidget->takeItem(0);
+        QWidget *card = ui->listWidget->itemWidget(item);
+        delete card;
+        card  = NULL;
+        delete item;
+        item  = NULL;
+    }
+    ui->listWidget->clear();
+}
 void DownloadListWidget::addItemSpk(QUrl spk)
 {
     SparkAPI *api=new SparkAPI(this);

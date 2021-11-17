@@ -24,9 +24,12 @@ public:
     ~MainWindow();
 private slots:
 private:
+    QList<int> pageHistory;
+    void switchPage(int now)
     void initConfig();
-    void initPage(int now);
     void updateUi(int now);
+    QPushButton *downloadButton;
+    QPushButton *backButton;
     DSearchEdit *searchEdit=new DSearchEdit;
     Ui::MainWindow *ui;
 };

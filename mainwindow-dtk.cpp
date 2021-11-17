@@ -36,6 +36,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     //初始化标题栏控件
+    downloadButton=new QPushButton(this);
+    backButtom=new QPushButton(this);
+    backButtom->hide();
     ui->titlebar->setIcon(QIcon::fromTheme(":/icon/logo.png"));
     QWidget *w_titlebar = new QWidget(this);
     QHBoxLayout *ly_titlebar = new QHBoxLayout(this);
@@ -44,9 +47,11 @@ MainWindow::MainWindow(QWidget *parent) :
     title->setText(tr("Spark Store"));
     searchEdit->setPlaceholderText(tr("Search or enter spk://"));
     ly_titlebar->addWidget(title);
+    ly_titlebar->addWidget(backButtom);
     ly_titlebar->addSpacing(10);
     ly_titlebar->addStretch();
     ly_titlebar->addWidget(searchEdit);
+    ly_titlebar->addWidget(downloadButton);
     ly_titlebar->addStretch();
 
     ui->titlebar->setCustomWidget(w_titlebar);
@@ -72,7 +77,8 @@ MainWindow::MainWindow(QWidget *parent) :
                 openUrl(searchtext);
                 searchEdit->clearEdit();
             }else{
-                ui->searchpage->searchApp(searchtext);
+                ui->applistpage->getSearchList(searchtext);
+                switchPage(1028);
                 searchEdit->clearEdit();
             }
         }
@@ -95,21 +101,40 @@ void MainWindow::openUrl(QUrl url)
         QDesktopServices::openUrl(url);
     }
 }
-void MainWindow::initPage(int now)
+void MainWindow::switchPage(int now)//临时方案，回家后修改
 {
-
+    if(pageHistory.count()>1)
+    {
+        backButtom->show();
+    }else{
+        backButtom->hide();
+    }
+    switch(now){
+    case 0:
+       ui->stackedWidget->setCurrentIndex(0);
+       pageHistory<<0;
+       break;
+    case 1:
+       ui->stackedWidget->setCurrentIndex(1);
+       pageHistory<<1;
+       break;
+    case 2:
+       ui->applistpage->getAppList("games");
+       ui->stackedWidget->setCurrentIndex(2);
+       pageHistory<<2;
+       break;
+    case 1028:
+       ui->stackedWidget->setCurrentIndex(2);
+       pageHistory<<1028;
+       break;
+    }
 }
 
 //刷新界面
 void MainWindow::updateUi(int now)
 {
-    if(now>1)
-    {
-        initPage(now);
-        ui->stackedWidget->setCurrentIndex(now);
-    }else{
-        ui->stackedWidget->setCurrentIndex(now)
-    }
+    pageHistory.clear();
+    switchPage(now);
 }
 MainWindow::~MainWindow()
 {

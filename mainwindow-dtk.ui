@@ -296,7 +296,7 @@
            <number>0</number>
           </property>
           <item>
-           <widget class="ClassifyPage" name="classifypage" native="true"/>
+           <widget class="AppListPage" name="applistpage" native="true"/>
           </item>
          </layout>
         </widget>
@@ -315,7 +315,7 @@
            <number>0</number>
           </property>
           <item>
-           <widget class="AppListPage" name="applistpage" native="true"/>
+           <widget class="AppListPage" name="applistpage_1" native="true"/>
           </item>
          </layout>
         </widget>
@@ -338,12 +338,6 @@
    <class>HomePage</class>
    <extends>QWidget</extends>
    <header>src/pages/homepage.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>ClassifyPage</class>
-   <extends>QWidget</extends>
-   <header>src/pages/classifypage.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>

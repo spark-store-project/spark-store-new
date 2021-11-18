@@ -109,32 +109,23 @@ void MainWindow::switchPage(int now)//临时方案，回家后修改
     }else{
         backButtom->hide();
     }
-    switch(now){
-    case 0:
-       ui->stackedWidget->setCurrentIndex(0);
-       pageHistory<<0;
-       break;
-    case 1:
-       ui->stackedWidget->setCurrentIndex(1);
-       pageHistory<<1;
-       break;
-    case 2:
-       ui->applistpage->getAppList("games");
-       ui->stackedWidget->setCurrentIndex(2);
-       pageHistory<<2;
-       break;
-    case 1028:
-       ui->stackedWidget->setCurrentIndex(2);
-       pageHistory<<1028;
-       break;
-    }
+    ui->stackedWidget->setCurrentIndex(now);
+    pageHistory<<now;
 }
 
 //刷新界面
 void MainWindow::updateUi(int now)
 {
     pageHistory.clear();
-    switchPage(now);
+    if(now == 0)
+    {
+        switchPage(0);
+    }else{
+        QStringList itemlist;
+        itemlist<<"network"<<"chat"<<"music"<<"video"<<"image_graphics"<<"games"<<"office"<<"reading"<<"development"<<"tools"<<"themes"<<"others";
+        ui->applistpage->getAppList(itemlist[now+1]);
+        switchPage(1);
+    }
 }
 MainWindow::~MainWindow()
 {

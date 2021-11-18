@@ -1,5 +1,6 @@
 #include "mainwindow-dtk.h"
 #include <QObject>
+#include <QString>
 #include <DWidgetUtil>
 #include <DApplication>
 DWIDGET_USE_NAMESPACE
@@ -17,8 +18,16 @@ int main(int argc, char *argv[])
     MainWindow w(nullptr);
     a.setProductName(QLabel::tr("Spark Store"));
     w.setWindowTitle(QObject::tr("Spark Store"));
+    a.setApplicationName("Spark Store");    //不需要翻译，否则 ~/.local/share/ 下文件夹名称也被翻译为中文
     DApplication::setWindowIcon(QIcon::fromTheme(":/icon/logo.png"));
+    
+    QString arg1 = argv[1];
+    if(arg1.left(6)=="spk://")
+    {
+        w.openUrl(QUrl(argv[1]));
+    }
     w.show();
+    
     Dtk::Widget::moveToCenter(&w);//让窗口居中显示
     return a.exec();
 }

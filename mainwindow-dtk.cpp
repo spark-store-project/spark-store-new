@@ -37,7 +37,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //初始化标题栏控件
     downloadButton=new QPushButton(this);
+    connect(downloadButton,&QPushButton::toggled,[=](){
+        downloadlistwidget->show();
+    });
     backButtom=new QPushButton(this);
+    downloadlistwidget=new DownloadListWidget(this);
+    downloadlistwidget->hide();
     backButtom->hide();
     ui->titlebar->setIcon(QIcon::fromTheme(":/icon/logo.png"));
     QWidget *w_titlebar = new QWidget(this);

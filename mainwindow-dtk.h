@@ -9,6 +9,7 @@
 #include <QPushButton>
 #include <QDir>
 #include <QDesktopServices>
+#include "src/widgets/downloadlistwidget.h"
 DWIDGET_USE_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -28,6 +29,7 @@ private:
     void switchPage(int now)
     void initConfig();
     void updateUi(int now);
+    DownloadListWidget *downloadlistwidget;
     QPushButton *downloadButton;
     QPushButton *backButton;
     DSearchEdit *searchEdit=new DSearchEdit;

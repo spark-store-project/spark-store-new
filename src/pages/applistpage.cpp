@@ -13,6 +13,7 @@ AppListPage::AppListPage(QWidget *parent) :
 }
 void AppListPage::getAppList(QString type)
 {
+    clearItem();
     SparkAPI *api=new SparkAPI(this);
     connect(api,&SparkAPI::finished,[=](QJsonArray APPs){
         for(int i=0;i < APPs.size();i++)
@@ -27,6 +28,11 @@ void AppListPage::getAppList(QString type)
 }
 void AppListPage::getSearchList(QString keyword)
 {
+    if(!mutex.tryLock())
+    {
+        return;
+    }
+    clearItem();
     SparkAPI *api=new SparkAPI(this);
     connect(api,&SparkAPI::finished,[=](QJsonArray APPs){
         for(int i=0;i < APPs.size();i++)
@@ -36,6 +42,7 @@ void AppListPage::getSearchList(QString keyword)
         }
         disconnect(api,&SparkAPI::finished,nullptr,nullptr);
         api->deleteLater();
+        mutex.unlock();
     });
     api->getSearchList(keyword);
 }

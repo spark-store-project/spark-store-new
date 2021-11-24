@@ -41,6 +41,16 @@ MainWindow::MainWindow(QWidget *parent) :
         downloadlistwidget->show();
     });
     backButtom=new QPushButton(this);
+    connect(backButtom,&QPushButton::toggled,[=](){
+        ui->stackedWidget->setCurrentIndex(pageHistory.at(pageHistory.count-1));
+        pageHistory.removeLast();
+        if(pageHistory.count()>1)
+        {
+            backButtom->show();
+        }else{
+            backButtom->hide();
+        }
+    });
     downloadlistwidget=new DownloadListWidget(this);
     downloadlistwidget->hide();
     backButtom->hide();
@@ -58,7 +68,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ly_titlebar->addWidget(searchEdit);
     ly_titlebar->addWidget(downloadButton);
     ly_titlebar->addStretch();
-
     ui->titlebar->setCustomWidget(w_titlebar);
 
     //侧边栏按钮
@@ -79,15 +88,25 @@ MainWindow::MainWindow(QWidget *parent) :
         {
             if(text.left(6) == "spk://")
             {
-                openUrl(searchtext);
+                openUrl(QUrl(searchtext));
                 searchEdit->clearEdit();
             }else{
                 ui->applistpage->getSearchList(searchtext);
-                switchPage(1028);
+                switchPage(2);
                 searchEdit->clearEdit();
             }
         }
         this->setFocus();
+    });
+
+    // 列表点击事件
+    connect(ui->applistpage, &AppListPage::clicked, this, [=](QUrl spk)
+    {
+        openUrl(spk);
+    });
+    connect(ui->applistpage_1, &AppListPage::clicked, this, [=](QUrl spk)
+    {
+        openUrl(spk);
     });
 
 }
@@ -102,6 +121,7 @@ void MainWindow::openUrl(QUrl url)
     if(url.toString().left(6) == "spk://")
     {
         ui->appintopage->openUrl(url);
+        switchPage(3);
     }else{
         QDesktopServices::openUrl(url);
     }

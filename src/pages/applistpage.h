@@ -1,6 +1,6 @@
 #ifndef APPLISTPAGE_H
 #define APPLISTPAGE_H
-
+#include <QMutex>
 #include <QWidget>
 #include <QListWidgetItem>
 #include "src/backend/sparkapi.h"
@@ -22,6 +22,7 @@ public:
 private slots:
     void on_pushButton_clicked();
 private:
+    QMutex mutex;   // 禁止多次搜索事件同时发生
     void clearItem();
     void addItem(QString name,QString author,QUrl icons,QUrl spk,QString more);
     Ui::AppListPage *ui;

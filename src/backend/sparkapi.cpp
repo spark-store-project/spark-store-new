@@ -13,9 +13,15 @@ void SparkAPI::get(QUrl url)
         QByteArray arr = data.toUtf8();
             //解析Json
             QJsonParseError error;
-            QJsonDocument doc = QJsonDocument::fromJson(arr,&error);
-            QJsonObject obj = doc.object();
-            emit finished(obj.toArray());
+            if(QJsonDocument::fromJson(arr,&error).isArray())
+            {
+                auto doc = QJsonDocument::fromJson(arr,&error).array();
+                emit finished(doc);
+            }else {
+                auto doc = QJsonDocument::fromJson(arr,&error).object();
+                emit finishedObject(doc);
+            }
+
             httprequest->deleteLater();
     });
     httprequest->getRequest(request);

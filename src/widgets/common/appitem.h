@@ -41,7 +41,6 @@ signals:
 protected:
     void mousePressEvent(QMouseEvent *ev);
     bool eventFilter(QObject *obj, QEvent *event);
-    virtual void resizeEvent(QResizeEvent *event) override;
 };
 
 #endif // APPITEM_H

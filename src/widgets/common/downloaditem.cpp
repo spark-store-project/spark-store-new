@@ -1,10 +1,9 @@
-#include "downloadditem.h"
+#include "downloaditem.h"
 #include "ui_downloaditem.h"
 
 #include <QtConcurrent>
 #include <QProcess>
 
-#include "widget.h"
 
 bool DownloadItem::isInstall = false;
 
@@ -27,8 +26,6 @@ DownloadItem::DownloadItem(QWidget *parent) :
     ui->label_filename->hide();
     ui->pushButton_install->hide();
     ui->pushButton_3->hide();
-    ui->widget_spinner->start();
-    ui->widget_spinner->hide();
     action_dpkg->setText(tr("Spark Store App Installer"));
     action_deepin->setText(tr("deepin deb installer"));
     action_gdebi->setText(tr("gdebi"));
@@ -92,8 +89,8 @@ void DownloadItem::readyInstall()
         ui->progressBar->hide();
         ui->pushButton_install->show();
         ui->pushButton_2->hide();
-        Widget::sendNotification(tr("Failed to download %1").arg(ui->label->text()), 5000,
-                                 "/tmp/spark-store/icon_" + QString::number(num).toUtf8() + ".png");
+        //Widget::sendNotification(tr("Failed to download %1").arg(ui->label->text()), 5000,
+        //                         "/tmp/spark-store/icon_" + QString::number(num).toUtf8() + ".png");
         ui->label_2->setText(tr("Download Failed，Check Your Connection"));
         ui->pushButton_install->setEnabled(false);
 
@@ -106,8 +103,8 @@ void DownloadItem::readyInstall()
         ui->pushButton_install->setEnabled(true);
         ui->pushButton_install->show();
         ui->pushButton_2->hide();
-        Widget::sendNotification(tr("Finished downloading %1, awaiting to install").arg(ui->label->text()), 5000,
-                                 "/tmp/spark-store/icon_" + QString::number(num).toUtf8() + ".png");
+        //Widget::sendNotification(tr("Finished downloading %1, awaiting to install").arg(ui->label->text()), 5000,
+        //                         "/tmp/spark-store/icon_" + QString::number(num).toUtf8() + ".png");
     }
 }
 
@@ -138,7 +135,6 @@ void DownloadItem::install(int t)
     {
         isInstall = true;
         ui->pushButton_install->hide();
-        ui->widget_spinner->show();
         qDebug() << "/tmp/spark-store/" + ui->label_filename->text().toUtf8();
         ui->label_2->setText(tr("Installing"));
 
@@ -200,8 +196,6 @@ void DownloadItem::install(int t)
                 ui->pushButton_install->show();
                 ui->pushButton_3->hide();
             }
-
-            ui->widget_spinner->hide();
             DownloadItem::isInstall = false;
         });
 
@@ -246,9 +240,9 @@ void DownloadItem::start()
     });
 
     downloadController=new DownloadController(this);
-    connect(downloadController, &DownloadController::downloadProcess, this, &Widget::updateDataReadProgress);
-    connect(downloadController, &DownloadController::downloadFinished, this, &Widget::httpFinished);
-    connect(downloadController, &DownloadController::errorOccur, this, [=](QString msg){this->sendNotification(msg);});
+    connect(downloadController, &DownloadController::downloadProcess, this, &DownloadItem::updateDataReadProgress);
+    connect(downloadController, &DownloadController::downloadFinished, this, &DownloadItem::httpFinished);
+    //connect(downloadController, &DownloadController::errorOccur, this, [=](QString msg){this->sendNotification(msg);});
     downloadController->setFilename(ui->label_filename->text());
     downloadController->startDownload(DownloadItem::url);
 }

@@ -2,6 +2,7 @@
 #define MAINWINDOWDTK_H
 
 #include <DMainWindow>
+#include <DBlurEffectWidget>
 #include <DTitlebar>
 #include <DSearchEdit>
 #include <QGraphicsDropShadowEffect>
@@ -15,7 +16,7 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public DMainWindow
+class MainWindow : public DBlurEffectWidget
 {
     Q_OBJECT
 
@@ -26,12 +27,12 @@ public:
 private slots:
 private:
     QList<int> pageHistory;
-    void switchPage(int now)
+    void switchPage(int now);
     void initConfig();
     void updateUi(int now);
     DownloadListWidget *downloadlistwidget;
     QPushButton *downloadButton;
-    QPushButton *backButton;
+    QPushButton *backButtom;
     DSearchEdit *searchEdit=new DSearchEdit;
     Ui::MainWindow *ui;
 };

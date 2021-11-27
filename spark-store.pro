@@ -33,14 +33,44 @@ CONFIG(release, debug|release): DEFINES += QT_NO_WARNING_OUTPUT QT_NO_DEBUG_OUTP
 SOURCES += \
         main.cpp \
         mainwindow-dtk.cpp \
-        src/backend/sparkapi.cpp
+        src/backend/sparkapi.cpp \
+        src/widgets/downloadlistwidget.cpp \
+        src/widgets/common/appitem.cpp \
+        src/widgets/common/downloaditem.cpp \
+        src/widgets/common/smoothlistwidget.cpp \
+        src/widgets/common/smoothscrollbar.cpp \
+        src/utils/httprequest.cpp \
+        src/pages/applistpage.cpp \
+        src/pages/homepage.cpp \
+        src/backend/downloadworker.cpp \
+    src/pages/appintopage.cpp \
+    src/widgets/big_image.cpp \
+    src/backend/image_show.cpp
 
 HEADERS += \
         mainwindow-dtk.h \
-        src/backend/sparkapi.h
+        src/backend/sparkapi.h \
+        src/widgets/downloadlistwidget.h \
+        src/widgets/common/appitem.h \
+        src/widgets/common/downloaditem.h \
+        src/widgets/common/smoothlistwidget.h \
+        src/widgets/common/smoothscrollbar.h \
+        src/utils/httprequest.h \
+        src/pages/applistpage.h \
+        src/backend/downloadworker.h \
+        src/pages/homepage.h \
+    src/pages/appintopage.h \
+    src/widgets/big_image.h \
+    src/backend/image_show.h
 
 FORMS += \
-        mainwindow-dtk.ui
+        mainwindow-dtk.ui \
+        src/widgets/downloadlistwidget.ui \
+        src/widgets/common/appitem.ui \
+        src/widgets/common/downloaditem.ui \
+        src/pages/applistpage.ui \
+        src/pages/homepage.ui \
+    src/pages/appintopage.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

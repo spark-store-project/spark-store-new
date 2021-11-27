@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
         return -1;
     }
     MainWindow w(nullptr);
-    a.setProductName(QLabel::tr("Spark Store"));
+    a.setProductName(QObject::tr("Spark Store"));
     w.setWindowTitle(QObject::tr("Spark Store"));
     a.setApplicationName("Spark Store");    //不需要翻译，否则 ~/.local/share/ 下文件夹名称也被翻译为中文
     DApplication::setWindowIcon(QIcon::fromTheme(":/icon/logo.png"));

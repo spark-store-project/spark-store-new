@@ -15,9 +15,11 @@ public:
     void getSearchList(QString keyword);
     void get(QUrl url);
     void getAppList(QString type);
+    void getAppInfo(QUrl spk);
     explicit SparkAPI(QObject *parent = nullptr);
 signals:
     void finished(QJsonArray);
+    void finishedObject(QJsonObject);
 
 public slots:
 };

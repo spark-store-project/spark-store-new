@@ -14,13 +14,13 @@ class AppListPage : public QWidget
     Q_OBJECT
 
 public:
+    void setTheme(bool dark);
+    void setTitle(QString title);
     void getSearchList(QString keyword);
     void getAppList(QString type);
     explicit AppListPage(QWidget *parent = nullptr);
     ~AppListPage();
 
-private slots:
-    void on_pushButton_clicked();
 private:
     QMutex mutex;   // 禁止多次搜索事件同时发生
     void clearItem();

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>970</width>
-    <height>607</height>
+    <width>1104</width>
+    <height>629</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -287,7 +287,7 @@
          <string notr="true">buttonGroup</string>
         </attribute>
        </widget>
-       </item>
+      </item>
       <item>
        <widget class="QPushButton" name="pushButton_8">
         <property name="minimumSize">
@@ -456,6 +456,19 @@
         </attribute>
        </widget>
       </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
      </layout>
     </widget>
    </item>
@@ -465,13 +478,22 @@
       <bool>true</bool>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
       <property name="bottomMargin">
        <number>0</number>
       </property>
       <item row="0" column="0">
        <widget class="QStackedWidget" name="stackedWidget">
         <property name="currentIndex">
-         <number>0</number>
+         <number>3</number>
         </property>
         <widget class="QWidget" name="page">
          <layout class="QGridLayout" name="gridLayout_3">
@@ -530,6 +552,25 @@
           </item>
          </layout>
         </widget>
+        <widget class="QWidget" name="page_2">
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="AppIntoPage" name="appintopage" native="true"/>
+          </item>
+         </layout>
+        </widget>
        </widget>
       </item>
      </layout>
@@ -555,6 +596,12 @@
    <class>AppListPage</class>
    <extends>QWidget</extends>
    <header>src/pages/applistpage.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>AppIntoPage</class>
+   <extends>QWidget</extends>
+   <header>src/pages/appintopage.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

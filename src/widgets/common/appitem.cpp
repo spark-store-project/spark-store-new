@@ -8,13 +8,7 @@ AppItem::AppItem(QWidget *parent) :
     ui->setupUi(this);
     this->setAttribute(Qt::WA_Hover,true);
     this->installEventFilter(this);
-    auto *defaultShadow = new QGraphicsDropShadowEffect(this);
-    defaultShadow->setBlurRadius(14.0);
-    defaultShadow->setColor(QColor(0, 0, 0, 30));
-    defaultShadow->setOffset(0, 0);
-    ui->widget->setGraphicsEffect(defaultShadow);
-    delete defaultShadow;
-    ui->widget->setStyleSheet("#widget{background-color: rgba(255,255,255,0.8);border-radius:14px;}");
+    ui->widget->setStyleSheet("#widget{background-color: rgba(255,255,255,1);border-radius:14px;border:1px solid rgb(229,229,229);}");
 }
 void AppItem::setTitle(QString title)
 {
@@ -55,12 +49,6 @@ void AppItem::setSpk(QUrl spk)
 {
     AppItem::spk=spk;
 }
-void AppItem::resizeEvent(QResizeEvent *event)
-{
-    int x = this->frameGeometry().width();
-    int y = this->frameGeometry().height();
-    ui->widget->setGeometry(5,10,x-5,y-15);
-}
 void AppItem::mousePressEvent(QMouseEvent *ev)
 {
     emit clicked(spk);
@@ -71,16 +59,16 @@ bool AppItem::eventFilter(QObject *obj, QEvent *event)
         if(event->type() == QEvent::HoverEnter) {
             QPropertyAnimation *a1 = new QPropertyAnimation(ui->widget, "pos");
             a1->setDuration(500);
-            a1->setStartValue(QPoint(5, 10));
-            a1->setEndValue(QPoint(5, 3));
+            a1->setStartValue(QPoint(8, 8));
+            a1->setEndValue(QPoint(8, 1));
             a1->setEasingCurve(QEasingCurve::OutBack);
             a1->start();
             return true;
         }else if(event->type()== QEvent::HoverLeave){
             QPropertyAnimation *a1 = new QPropertyAnimation(ui->widget, "pos");
             a1->setDuration(500);
-            a1->setStartValue(QPoint(5, 3));
-            a1->setEndValue(QPoint(5, 10));
+            a1->setStartValue(QPoint(8, 1));
+            a1->setEndValue(QPoint(8, 8));
             a1->setEasingCurve(QEasingCurve::OutBack);
             a1->start();
         }

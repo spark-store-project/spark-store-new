@@ -137,7 +137,7 @@ echo "Maintainer: spark-store" >> ./control
 echo "Description: 这是一个假软件包，请点击卸载" >> ./control 
 echo "Architecture: amd64" >> ./control
 
-echo "-----------------------开始打包-----------------------！"
+echo "-----------------------开始打包-----------------------"
 cd ..
 workdir=`pwd`
 echo "回退到工作目录，当前目录位于$workdir"

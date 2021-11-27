@@ -60,6 +60,7 @@ private:
     QString url;
     QMenu *menu_install;
     QAction *action_dpkg;
+    QAction *action_udpkg;
     QAction *action_deepin;
     QAction *action_gdebi;
 

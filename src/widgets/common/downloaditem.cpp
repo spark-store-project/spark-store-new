@@ -13,6 +13,7 @@ DownloadItem::DownloadItem(QWidget *parent) :
     ui(new Ui::DownloadItem),
     menu_install(new QMenu),
     action_dpkg(new QAction),
+    action_udpkg(new QAction),
     action_deepin(new QAction),
     action_gdebi(new QAction),
     output_w(new DDialog),
@@ -26,12 +27,14 @@ DownloadItem::DownloadItem(QWidget *parent) :
     ui->pushButton_install->hide();
     ui->pushButton_3->hide();
     action_dpkg->setText(tr("Spark Store App Installer"));
+    action_udpkg->setText(tr("ussinstall"));
     action_deepin->setText(tr("deepin deb installer"));
     action_gdebi->setText(tr("gdebi"));
 
     connect(action_dpkg,&QAction::triggered,[=](){DownloadItem::install(0);});
     connect(action_deepin,&QAction::triggered,[=](){DownloadItem::install(1);});
     connect(action_gdebi,&QAction::triggered,[=](){DownloadItem::install(2);});
+    connect(action_udpkg,&QAction::triggered,[=](){DownloadItem::install(3);});
 
     // ssinstall 命令存在时再加入该选项
     QFile ssinstall("/usr/local/bin/ssinstall");
@@ -40,6 +43,14 @@ DownloadItem::DownloadItem(QWidget *parent) :
     {
         menu_install->addAction(action_dpkg);
     }
+    //ussinstall
+    QFile ussinstall("/usr/local/bin/ussinstall");
+    ussinstall.open(QIODevice::ReadOnly);
+    if(ussinstall.isOpen())
+    {
+        menu_install->addAction(action_udpkg);
+    }
+
 
     QFile deepin("/usr/bin/deepin-deb-installer");
     deepin.open(QIODevice::ReadOnly);
@@ -150,6 +161,9 @@ void DownloadItem::install(int t)
                 break;
             case 2:
                 installer.start("pkexec", QStringList() << "gdebi" << "-n" << "/tmp/spark-store/" + ui->label_filename->text().toUtf8());
+                break;
+            case 3:
+                installer.start("ussinstall", QStringList() << "/tmp/spark-store/" + ui->label_filename->text().toUtf8());
                 break;
             }
 

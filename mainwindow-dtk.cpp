@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->stackedWidget->setCurrentIndex(0);
     ui->titlebar->setBackgroundTransparent(true);
     //ui->titlebar->setMenuVisible(false);//去除dtk标题栏菜单
-    setMaskAlpha(230);
+    setMaskAlpha(240);
     setMaskColor(QColor("#f3f7f8"));
 
     // 新建临时文件夹

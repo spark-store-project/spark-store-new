@@ -101,6 +101,7 @@ MainWindow::MainWindow(QWidget *parent) :
         connect(ui->buttonGroup->buttons()[i],&QPushButton::toggled,[=](bool checked){
             if(checked==true)
             {
+                ui->appintopage->clear();
                 updateUi(i);
             }
         });

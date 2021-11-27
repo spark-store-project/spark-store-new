@@ -57,7 +57,7 @@ void AppIntoPage::openUrl(QUrl url)
         QNetworkAccessManager *naManager;
         QNetworkRequest request;
         naManager=new QNetworkAccessManager(this);
-        request.setUrl(QUrl("https://img.jerrywang.top/store"+url.path() + "/icon.png"));
+        request.setUrl(QUrl(api->getImgServerUrl()+"store"+url.path() + "/icon.png"));
         request.setRawHeader("User-Agent", "Mozilla/5.0");
         request.setRawHeader("Content-Type", "charset='utf-8'");
         naManager->get(request);
@@ -129,6 +129,7 @@ void AppIntoPage::openUrl(QUrl url)
         else
         {
             ui->downloadButton->setText(tr("Install"));
+            ui->downloadButton->show();
         }
         QStringList taglist = info["Tags"].toString().split(";");
         QString tmp=info["img_urls"].toString();

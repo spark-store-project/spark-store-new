@@ -30,7 +30,7 @@ void AppListPage::getAppList(QString type)
         for(int i=0;i < APPs.size();i++)
         {
            QJsonObject info = APPs.at(i).toObject();
-           addItem(info["Name"].toString(),info["Author"].toString(),QUrl(api->getServerUrl()+"store/"+type+"/"+info["Pkgname"].toString()+"/icon.png"),QUrl("spk://store/"+type+"/"+info["Pkgname"].toString()),info["More"].toString());
+           addItem(info["Name"].toString(),info["Author"].toString(),QUrl(api->getImgServerUrl()+"store/"+type+"/"+info["Pkgname"].toString()+"/icon.png"),QUrl("spk://store/"+type+"/"+info["Pkgname"].toString()),info["More"].toString());
         }
         disconnect(api,&SparkAPI::finished,nullptr,nullptr);
         api->deleteLater();

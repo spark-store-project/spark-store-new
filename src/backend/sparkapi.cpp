@@ -42,3 +42,7 @@ QString SparkAPI::getServerUrl()
 {
     return "https://d.store.deepinos.org.cn/";
 }
+QString SparkAPI::getImgServerUrl()
+{
+    return "https://img.jerrywang.top/";
+}

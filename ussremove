@@ -92,29 +92,31 @@ fi
 
 done
 
-while [ ! $version ]
-do
-if [ ! $2 ]
-    then 
-    echo "没有检测到版本号，以交互式模式运行"
-    echo "请输入你要卸载的软件包版本号，输入结束后回车"
-    read version
-else
-    echo "检测到包名，跳过获取"
-    version="$2"
-    echo "读取到的版本号为：$version"
-fi
+#while [ ! $version ]
+#do
+#if [ ! $2 ]
+#    then 
+#    echo "没有检测到版本号，以交互式模式运行"
+#    echo "请输入你要卸载的软件包版本号，输入结束后回车"
+#    read version
+#else
+#    echo "检测到包名，跳过获取"
+#    version="$2"
+#    echo "读取到的版本号为：$version"
+#fi
+#
+#if [ ! $version ]
+#	then
+#	echo "没有检测到版本号，请重新输入！"
+#	sleep 3
+#	clear
+#else 
+#	echo "版本号读取成功，进入下一步"
+#fi
+#done
 
-if [ ! $version ]
-	then
-	echo "没有检测到版本号，请重新输入！"
-	sleep 3
-	clear
-else 
-	echo "版本号读取成功，进入下一步"
-fi
-done
-
+#发现版本号不一定一致也可以卸载
+version="1.0"
 echo "开始生成deb包"
 echo "输出的control文件为"
 echo ""
@@ -142,20 +144,19 @@ cd ..
 workdir=`pwd`
 echo "回退到工作目录，当前目录位于$workdir"
 fakeroot dpkg -b . ./uninstall.deb
+echo "-----------------------打包结束-----------------------"
 
 cd /tmp
 
-echo "开始签名"
+echo "-----------------------开始签名-----------------------"
 deepin-elf-sign-deb "/tmp/spark-store-appremover/uninstall.deb"
-echo "签名结束，启动深度软件包管理器"
-
-
-
+echo "-----------------------签名结束-----------------------"
+echo "-----------------启动深度软件包管理器-------------------"
 
 deepin-deb-installer "/tmp/signed_deb/uninstall.deb"
 
 file_name=$(basename "/tmp/signed_deb/uninstall.deb")
-
+echo "---------------以上为深度软件包管理器输出----------------"
 echo "删除临时包"
 rm  "/tmp/signed_deb/$file_name"
 rm -r /tmp/spark-store-appremover

@@ -12,6 +12,7 @@ cd ..
 
 cp ./ssinstall ./debian/opt/durapps/spark-store/bin/
 cp ./ussinstall ./debian/opt/durapps/spark-store/bin/
+cp ./ussremove ./debian/opt/durapps/spark-store/bin/
 cp ./build/spark-store ./debian/opt/durapps/spark-store/bin/
 cp ./translations/*.qm ./debian/usr/share/spark-store/translations/
 

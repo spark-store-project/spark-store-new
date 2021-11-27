@@ -1,6 +1,5 @@
 #include "appintopage.h"
 #include "ui_appintopage.h"
-
 AppIntoPage::AppIntoPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::AppIntoPage)
@@ -222,6 +221,11 @@ void AppIntoPage::setTheme(bool dark)
 
         ui->icon_1->setPixmap(QPixmap(":/icon/light/box.svg"));
         ui->icon_2->setPixmap(QPixmap(":/icon/light/box.svg"));
+        ui->icon_3->setPixmap(QPixmap(":/icon/light/calendar.svg"));
+        ui->icon_4->setPixmap(QPixmap(":/icon/light/text.svg"));
+        ui->icon_5->setPixmap(QPixmap(":/icon/light/folder.svg"));
+        ui->icon_6->setPixmap(QPixmap(":/icon/light/globe.svg"));
+
     }
 }
 AppIntoPage::~AppIntoPage()

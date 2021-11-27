@@ -1,4 +1,5 @@
 #include "sparkapi.h"
+
 #include <QDebug>
 SparkAPI::SparkAPI(QObject *parent) : QObject(parent)
 {

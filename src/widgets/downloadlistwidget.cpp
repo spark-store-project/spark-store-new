@@ -39,6 +39,10 @@ void DownloadListWidget::addItem(QString name,QString fileName,QString pkgName,c
     {
         return;
     }
+    if(fileName.isEmpty())
+    {
+        return;
+    }
     DownloadItem *di=new DownloadItem(this);
     dlist<<downloadurl;
     downloaditemlist<<di;

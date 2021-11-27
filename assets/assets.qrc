@@ -34,5 +34,9 @@
         <file>icon/light/leftbutton_11.svg</file>
         <file>icon/light/leftbutton_12.svg</file>
         <file>icon/light/box.svg</file>
+        <file>icon/light/calendar.svg</file>
+        <file>icon/light/globe.svg</file>
+        <file>icon/light/folder.svg</file>
+        <file>icon/light/text.svg</file>
     </qresource>
 </RCC>

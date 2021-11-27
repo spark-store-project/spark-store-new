@@ -1,6 +1,5 @@
 #ifndef SPARKAPI_H
 #define SPARKAPI_H
-
 #include <QObject>
 #include <QJsonObject>
 #include <QJsonArray>

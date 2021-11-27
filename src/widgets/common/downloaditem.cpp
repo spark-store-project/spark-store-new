@@ -4,7 +4,6 @@
 #include <QtConcurrent>
 #include <QProcess>
 
-
 bool DownloadItem::isInstall = false;
 
 DownloadItem::DownloadItem(QWidget *parent) :

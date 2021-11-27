@@ -1059,18 +1059,21 @@ QListWidget::item::selected
                 <widget class="QLabel" name="icon_1">
                  <property name="minimumSize">
                   <size>
-                   <width>18</width>
+                   <width>16</width>
                    <height>16</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>18</width>
+                   <width>16</width>
                    <height>16</height>
                   </size>
                  </property>
                  <property name="text">
                   <string/>
+                 </property>
+                 <property name="scaledContents">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -1090,11 +1093,20 @@ QListWidget::item::selected
                </item>
                <item row="0" column="3">
                 <widget class="QLabel" name="icon_2">
-                 <property name="maximumSize">
+                 <property name="minimumSize">
                   <size>
-                   <width>18</width>
+                   <width>16</width>
                    <height>16</height>
                   </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16</width>
+                   <height>16</height>
+                  </size>
+                 </property>
+                 <property name="scaledContents">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -1118,7 +1130,23 @@ QListWidget::item::selected
                 <widget class="QLabel" name="d_update"/>
                </item>
                <item row="3" column="0">
-                <widget class="QLabel" name="icon_4"/>
+                <widget class="QLabel" name="icon_4">
+                 <property name="minimumSize">
+                  <size>
+                   <width>16</width>
+                   <height>16</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16</width>
+                   <height>16</height>
+                  </size>
+                 </property>
+                 <property name="scaledContents">
+                  <bool>true</bool>
+                 </property>
+                </widget>
                </item>
                <item row="0" column="2">
                 <spacer name="horizontalSpacer_7">
@@ -1138,11 +1166,20 @@ QListWidget::item::selected
                </item>
                <item row="0" column="6">
                 <widget class="QLabel" name="icon_3">
-                 <property name="maximumSize">
+                 <property name="minimumSize">
                   <size>
-                   <width>18</width>
+                   <width>16</width>
                    <height>16</height>
                   </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16</width>
+                   <height>16</height>
+                  </size>
+                 </property>
+                 <property name="scaledContents">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -1157,7 +1194,23 @@ QListWidget::item::selected
                 <widget class="QLabel" name="d_pkgname"/>
                </item>
                <item row="3" column="3">
-                <widget class="QLabel" name="icon_5"/>
+                <widget class="QLabel" name="icon_5">
+                 <property name="minimumSize">
+                  <size>
+                   <width>16</width>
+                   <height>16</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16</width>
+                   <height>16</height>
+                  </size>
+                 </property>
+                 <property name="scaledContents">
+                  <bool>true</bool>
+                 </property>
+                </widget>
                </item>
                <item row="3" column="4">
                 <widget class="QLabel" name="label_18">
@@ -1170,7 +1223,23 @@ QListWidget::item::selected
                 <widget class="QLabel" name="d_size"/>
                </item>
                <item row="3" column="6">
-                <widget class="QLabel" name="icon_6"/>
+                <widget class="QLabel" name="icon_6">
+                 <property name="minimumSize">
+                  <size>
+                   <width>16</width>
+                   <height>16</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16</width>
+                   <height>16</height>
+                  </size>
+                 </property>
+                 <property name="scaledContents">
+                  <bool>true</bool>
+                 </property>
+                </widget>
                </item>
                <item row="3" column="7">
                 <widget class="QLabel" name="label_21">

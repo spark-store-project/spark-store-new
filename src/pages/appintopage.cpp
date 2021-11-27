@@ -63,10 +63,9 @@ void AppIntoPage::openUrl(QUrl url)
         naManager->get(request);
         QObject::connect(naManager,&QNetworkAccessManager::finished,[=](QNetworkReply *reply){
                 QByteArray jpegData = reply->readAll();
-                QPixmap pixmap;
-                pixmap.loadFromData(jpegData);
-                pixmap.scaled(100, 100, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-                ui->icon->setPixmap(pixmap);
+                iconpixmap.loadFromData(jpegData);
+                iconpixmap.scaled(210, 200, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+                ui->icon->setPixmap(iconpixmap);
                 ui->icon->setScaledContents(true);
             });
         ui->title->setText(info["Name"].toString());
@@ -133,6 +132,7 @@ void AppIntoPage::openUrl(QUrl url)
         }
         QStringList taglist = info["Tags"].toString().split(";");
         QString tmp=info["img_urls"].toString();
+        qDebug()<<tmp;
         if(tmp.left(2)=="[\"")
         {
             tmp.remove(0,2);
@@ -154,10 +154,11 @@ void AppIntoPage::openUrl(QUrl url)
             naManager->get(request);
             QObject::connect(naManager,&QNetworkAccessManager::finished,[=](QNetworkReply *reply){
                     QByteArray jpegData = reply->readAll();
-                    iconpixmap.loadFromData(jpegData);
-                    iconpixmap.scaled(210, 200, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+                    QPixmap pixmap;
+                    pixmap.loadFromData(jpegData);
+                    pixmap.scaled(100, 100, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
                     image_show *img=new image_show(this);
-                    img->setImage(iconpixmap);
+                    img->setImage(pixmap);
                     //img->setScaledContents(true);
                     QListWidgetItem* pItem = new QListWidgetItem();
                     pItem->setSizeHint(QSize(280, 200));
@@ -218,6 +219,9 @@ void AppIntoPage::setTheme(bool dark)
                              #frame_2{background-color: #fbfbfb;border-radius:14px;border:1px solid rgb(229,229,229);}\
                              #frame_3{background-color: #fbfbfb;border-radius:14px;border:1px solid rgb(229,229,229);}\
                              #frame_4{background-color: #fbfbfb;border-radius:14px;border:1px solid rgb(229,229,229);}");
+
+        ui->icon_1->setPixmap(QPixmap(":/icon/light/box.svg"));
+        ui->icon_2->setPixmap(QPixmap(":/icon/light/box.svg"));
     }
 }
 AppIntoPage::~AppIntoPage()

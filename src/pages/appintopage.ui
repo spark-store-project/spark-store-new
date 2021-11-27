@@ -643,7 +643,7 @@
                 <number>16</number>
                </property>
                <item>
-                <widget class="QLabel" name="label">
+                <widget class="QLabel" name="title_1">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                    <horstretch>0</horstretch>
@@ -778,7 +778,7 @@
                 <number>16</number>
                </property>
                <item>
-                <widget class="QLabel" name="label_3">
+                <widget class="QLabel" name="title_2">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                    <horstretch>0</horstretch>
@@ -943,7 +943,7 @@ QListWidget::item::selected
                 <number>16</number>
                </property>
                <item>
-                <widget class="QLabel" name="label_4">
+                <widget class="QLabel" name="title_3">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                    <horstretch>0</horstretch>
@@ -1015,6 +1015,9 @@ QListWidget::item::selected
                <property name="bottomMargin">
                 <number>8</number>
                </property>
+               <property name="horizontalSpacing">
+                <number>6</number>
+               </property>
                <item row="1" column="4">
                 <widget class="QLabel" name="d_contributor">
                  <property name="text">
@@ -1054,6 +1057,18 @@ QListWidget::item::selected
                </item>
                <item row="0" column="0">
                 <widget class="QLabel" name="icon_1">
+                 <property name="minimumSize">
+                  <size>
+                   <width>18</width>
+                   <height>16</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>18</width>
+                   <height>16</height>
+                  </size>
+                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -1074,7 +1089,14 @@ QListWidget::item::selected
                 </widget>
                </item>
                <item row="0" column="3">
-                <widget class="QLabel" name="icon_2"/>
+                <widget class="QLabel" name="icon_2">
+                 <property name="maximumSize">
+                  <size>
+                   <width>18</width>
+                   <height>16</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
                <item row="0" column="5">
                 <spacer name="horizontalSpacer_8">
@@ -1115,7 +1137,14 @@ QListWidget::item::selected
                 </spacer>
                </item>
                <item row="0" column="6">
-                <widget class="QLabel" name="icon_3"/>
+                <widget class="QLabel" name="icon_3">
+                 <property name="maximumSize">
+                  <size>
+                   <width>18</width>
+                   <height>16</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
                <item row="0" column="1">
                 <widget class="QLabel" name="label_6">

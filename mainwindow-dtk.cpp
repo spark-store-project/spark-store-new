@@ -16,6 +16,10 @@ MainWindow::MainWindow(QWidget *parent) :
     setMaskAlpha(230);
     setMaskColor(QColor("#f3f7f8"));
 
+    // 新建临时文件夹
+    QDir dir("/tmp");
+    dir.mkdir("spark-store");
+
     //主题切换
     connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, [=](DGuiApplicationHelper::ColorType themeType) {
         if(themeType==DGuiApplicationHelper::DarkType){
@@ -24,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
         }else {
             //亮色模式
             this->setStyleSheet("#mainpage{background-color: transparent;border-radius:14px;}\
-                                QLabel#cardtitle,QLabel#title {color:#000000}\
+                                QLabel#cardtitle,QLabel#title,QLabel#title_1,QLabel#title_2,QLabel#title_3 {color:#000000}\
                                 ");
             backButtom->setIcon(QIcon(":/icon/light/back.svg"));
             downloadButton->setIcon(QIcon(":/icon/light/download.svg"));

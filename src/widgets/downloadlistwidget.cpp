@@ -48,8 +48,9 @@ void DownloadListWidget::addItem(QString name,QString fileName,QString pkgName,c
     di->seticon(icon);
     di->setUrl(downloadurl);
     connect(di,&DownloadItem::finished,[=](){
-        if(nowdownload<downloaditemlist.size())
+        if(nowdownload<downloaditemlist.size()-1)
         {
+            nowdownload++;
             downloaditemlist[nowdownload]->start();
         }else {
             isBusy=false;
@@ -57,14 +58,14 @@ void DownloadListWidget::addItem(QString name,QString fileName,QString pkgName,c
 
     });
     QListWidgetItem* pItem = new QListWidgetItem();
-    pItem->setSizeHint(QSize(240, 250));
+    pItem->setSizeHint(QSize(240, 50));
     ui->listWidget->addItem(pItem);
     ui->listWidget->setItemWidget(pItem, di);
     if(!isBusy)
     {
         isBusy=true;
         di->start();
-        nowdownload=downloaditemlist.size();
+        nowdownload=downloaditemlist.size()-1;
     }
 }
 void DownloadListWidget::m_move(int x,int y)

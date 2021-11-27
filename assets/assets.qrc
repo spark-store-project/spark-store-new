@@ -33,5 +33,6 @@
         <file>icon/light/leftbutton_10.svg</file>
         <file>icon/light/leftbutton_11.svg</file>
         <file>icon/light/leftbutton_12.svg</file>
+        <file>icon/light/box.svg</file>
     </qresource>
 </RCC>

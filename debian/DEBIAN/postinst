@@ -4,6 +4,7 @@ mkdir -p /usr/local/bin
 
 ln -s -f /opt/durapps/spark-store/bin/spark-store /usr/local/bin/spark-store
 ln -s -f /opt/durapps/spark-store/bin/ssinstall /usr/local/bin/ssinstall
+ln -s -f /opt/durapps/spark-store/bin/ussinstall /usr/local/bin/ussinstall
 
 cd /tmp/spark-store-install
 wget https://d.store.deepinos.org.cn/dcs-repo.gpg-key.asc

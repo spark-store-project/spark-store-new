@@ -91,7 +91,7 @@ deepin-elf-sign-deb "$debpath"
 echo "------------签名工具输出已结束------------"
 echo "签名结束，启动深度软件包管理器"
 else
-echo "路径出错,请确认你输入了正确的路径！"s
+echo "路径出错,请确认你输入了正确的路径！"
 sleep 3
 clear
 fi

@@ -13,7 +13,8 @@ if [ "$1" = "triggered" ]; then
 else
 
 mkdir -p /usr/local/bin
-
+ln -s -f /opt/durapps/spark-store/bin/ussinstall /usr/local/bin/ussinstall
+ln -s -f /opt/durapps/spark-store/bin/ussremove /usr/local/bin/ussremove
 ln -s -f /opt/durapps/spark-store/bin/spark-store /usr/local/bin/spark-store
 ln -s -f /opt/durapps/spark-store/bin/ssinstall /usr/local/bin/ssinstall
 ln -s -f /opt/durapps/spark-store/bin/spark-dstore-patch /usr/local/bin/spark-dstore-patch

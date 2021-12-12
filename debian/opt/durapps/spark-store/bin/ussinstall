@@ -86,14 +86,22 @@ echo "去除可能的单引号后得到：$debpath"
 if [ -f $debpath ]
 then
 echo "文件有效，开始签名"
+echo "------------以下为签名工具输出------------"
 deepin-elf-sign-deb "$debpath"
+echo "------------签名工具输出已结束------------"
 echo "签名结束，启动深度软件包管理器"
 else
-echo "路径出错,请确认你输入了正确的路径！"
+echo "路径出错,请确认你输入了正确的路径！"s
 sleep 3
 clear
 fi
 done
+
+
 file_name=$(basename "$debpath")
 
+echo "--------以下为深度软件包安装器输出--------"
 deepin-deb-installer "/tmp/signed_deb/$file_name"
+echo "--------深度软件包安装器输出已结束--------"
+echo "删除临时文件"
+rm /tmp/signed_deb/$file_name

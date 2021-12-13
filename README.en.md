@@ -1,36 +1,39 @@
-# Spark-Store-New
+<p align="center">
+<img src="https://gitee.com/deepin-community-store/spark-store-new/raw/master/assets/icon/logo.svg" height=200 width=200/>
+</p>
 
-#### Description
-{**When you're done, you can delete the content in this README and update the file with details for others getting started with your repository**}
+<div align="center">
 
-#### Software Architecture
-Software architecture description
+# Spark App Store
 
-#### Installation
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Instructions
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Contribution
-
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
+The `Spark App Store` is now designed for Linux!
 
 
-#### Gitee Feature
+</div>
 
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+---
+
+As we all know, there are few Linux applications in our country, wine applications are hard to get, high-quality tools are scattered in various folk forums, unable to form synergy, difficult to improve the ecology
+Ecological construction does not need one party to fight alone, but everyone to act, gather sparks, resulting in a prairie fire
+
+We created this app store, which includes a wide range of software packages we need, a collection of quality widgets, an active adaptation of wine apps, and a repository for everyone to access
+
+We support: Deepin 20; Ubuntu 20.04LTS; UOS Home 20
+
+We’d love to see some of you join us as well, and we’d love to help build the Linux application ecosystem
+
+
+
+## 🙌 A simple start
+
+
+If you want to install the `Spark App Store`, open the [Release] page on the right, find the latest version, and select the installation package that works for your current system.
+
+
+
+**Watch** project to get updates on the application.
+
+
+## 🚀 Collaboration
+
+Many thanks to interested developers or enthusiasts for participating in the Spark App Store project and sharing your insights and ideas.

@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QMouseEvent>
 
-#include "src/widgets/big_image.h"
+#include "widgets/big_image.h"
 
 class image_show : public QWidget
 {
@@ -27,7 +27,6 @@ private:
     QLabel *m_label;
     QLabel image;
     QPixmap m_image;
-
 };
 
 #endif // IMAGE_SHOW_H

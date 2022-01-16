@@ -4,7 +4,7 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QJsonParseError>
-#include "src/utils/httprequest.h"
+#include "utils/httprequest.h"
 
 class SparkAPI : public QObject
 {

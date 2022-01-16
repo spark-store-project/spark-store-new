@@ -5,8 +5,8 @@
 #include <DBlurEffectWidget>
 #include <QNetworkAccessManager>
 #include <QDesktopServices>
-#include "src/widgets/common/downloaditem.h"
-#include "src/backend/sparkapi.h"
+#include "widgets/common/downloaditem.h"
+#include "backend/sparkapi.h"
 
 DWIDGET_USE_NAMESPACE
 namespace Ui {
@@ -18,21 +18,21 @@ class DownloadListWidget : public DBlurEffectWidget
     Q_OBJECT
 
 public:
-    void addItem(QString name,QString fileName,QString pkgName,const QPixmap icon,QString downloadurl);
-    void m_move(int x,int y);
+    void addItem(QString name, QString fileName, QString pkgName, const QPixmap icon, QString downloadurl);
+    void m_move(int x, int y);
     explicit DownloadListWidget(QWidget *parent = nullptr);
     ~DownloadListWidget();
 
 private:
     bool isBusy = false;
     QStringList dlist;
-    QList<DownloadItem*> downloaditemlist;
-    int nowdownload=0;
+    QList<DownloadItem *> downloaditemlist;
+    int nowdownload = 0;
     void clearItem();
     QRect m_rect;
     Ui::DownloadListWidget *ui;
 private slots:
-    bool eventFilter(QObject *,QEvent *);
+    bool eventFilter(QObject *, QEvent *);
     void mouseMoveEvent(QMouseEvent *event);
     void on_pushButton_clicked();
 };

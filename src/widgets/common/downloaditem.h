@@ -9,8 +9,8 @@
 #include <DDialog>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
-#include "src/backend/sparkapi.h"
-#include "src/backend/downloadworker.h"
+#include "backend/sparkapi.h"
+#include "backend/downloadworker.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -68,7 +68,7 @@ private:
     QTextBrowser *textbrowser;
 private slots:
     void httpFinished();
-    void updateDataReadProgress(qint64,qint64);
+    void updateDataReadProgress(qint64, qint64);
 private slots:
     void on_pushButton_install_clicked();
     void on_pushButton_2_clicked();

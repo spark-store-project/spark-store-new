@@ -127,7 +127,7 @@ QListWidget::item::selected
   <customwidget>
    <class>SmoothListWidget</class>
    <extends>QListWidget</extends>
-   <header>src/widgets/common/smoothlistwidget.h</header>
+   <header>widgets/common/smoothlistwidget.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

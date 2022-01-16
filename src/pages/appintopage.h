@@ -4,9 +4,9 @@
 #include <QWidget>
 #include <QUrl>
 #include <QtConcurrent>
-#include "src/backend/sparkapi.h"
-#include "src/backend/image_show.h"
-#include "src/widgets/downloadlistwidget.h"
+#include "backend/sparkapi.h"
+#include "backend/image_show.h"
+#include "widgets/downloadlistwidget.h"
 namespace Ui {
 class AppIntoPage;
 }

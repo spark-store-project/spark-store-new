@@ -32,6 +32,9 @@ Makefile*
 # Qt unit tests
 target_wrapper.*
 
+# Qt qm files
+translations/*.qm
+
 # QtCreator
 *.autosave
 
@@ -42,3 +45,9 @@ target_wrapper.*
 # QtCreator CMake
 CMakeLists.txt.user*
 build
+
+# Debian dpkg-buildpackage
+debian/*.debhelper*
+debian/files
+debian/*.substvars
+debian/spark-store

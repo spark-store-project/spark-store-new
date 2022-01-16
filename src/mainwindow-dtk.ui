@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1104</width>
-    <height>629</height>
+    <height>651</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -493,7 +493,7 @@
       <item row="0" column="0">
        <widget class="QStackedWidget" name="stackedWidget">
         <property name="currentIndex">
-         <number>3</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="page">
          <layout class="QGridLayout" name="gridLayout_3">
@@ -589,19 +589,19 @@
   <customwidget>
    <class>HomePage</class>
    <extends>QWidget</extends>
-   <header>src/pages/homepage.h</header>
+   <header>pages/homepage.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>AppListPage</class>
    <extends>QWidget</extends>
-   <header>src/pages/applistpage.h</header>
+   <header>pages/applistpage.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>AppIntoPage</class>
    <extends>QWidget</extends>
-   <header>src/pages/appintopage.h</header>
+   <header>pages/appintopage.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

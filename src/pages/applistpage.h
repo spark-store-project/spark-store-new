@@ -3,8 +3,8 @@
 #include <QMutex>
 #include <QWidget>
 #include <QListWidgetItem>
-#include "src/backend/sparkapi.h"
-#include "src/widgets/common/appitem.h"
+#include "backend/sparkapi.h"
+#include "widgets/common/appitem.h"
 namespace Ui {
 class AppListPage;
 }
@@ -22,9 +22,9 @@ public:
     ~AppListPage();
 
 private:
-    QMutex mutex;   // 禁止多次搜索事件同时发生
+    QMutex mutex; // 禁止多次搜索事件同时发生
     void clearItem();
-    void addItem(QString name,QString author,QUrl icons,QUrl spk,QString more);
+    void addItem(QString name, QString author, QUrl icons, QUrl spk, QString more);
     Ui::AppListPage *ui;
 signals:
     void clicked(QUrl spk);
